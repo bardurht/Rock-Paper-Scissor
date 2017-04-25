@@ -5,7 +5,6 @@
 	<title>GAME</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-
 	<style>
 		*{
 			margin: 0px;
@@ -49,17 +48,12 @@
 		}
 
 	</style>
-
-
 </head>
 <body>
 
 	<div id="lblNickname">
 		<input id="nickname" type="text" name="txtNickname" placeholder="nickname">	
 	</div>
-
-
-
 
 	<div id="lblHands">
 		<div>
@@ -73,15 +67,9 @@
 		</div>				
 	</div>		
 
-
-
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-
-
-	<script>
-		
+	<script>	
 		$("#rock").click(function(){
 			var sNickname = $("#nickname").val(); // get the value from the text box
 			// AJAX to the server
@@ -90,8 +78,6 @@
 				console.log( jData );
 			});
 		});
-
-
 
 		$("#paper").click(function(){
 			var sNickname = $("#nickname").val(); // get the value from the text box
@@ -102,7 +88,6 @@
 			});
 		});
 
-
 		$("#scissor").click(function(){
 			var sNickname = $("#nickname").val(); // get the value from the text box
 			// AJAX to the server
@@ -111,8 +96,6 @@
 				console.log( jData );
 			});
 		});
-
-
 
 		setInterval( function(){
 			var sNickname = $("#nickname").val(); // get the value from the text box
@@ -124,15 +107,8 @@
 				if( jData.status == "winner" && jData.nickname == sNickname){
 					$("body").css( {"background-color":"green"} );
 				}
-
 			});
 		} , 1000 );
-
-
-
 	</script>
-
-
-
 </body>
 </html>

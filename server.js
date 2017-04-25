@@ -10,18 +10,17 @@ app.use( bodyParser.urlencoded( {"extended":false} ) );
 var jPlayerOne = {"nickname":"a","choice":""};
 var jPlayerTwo = {"nickname":"b","choice":""};
 
-
-
-
 app.get( "/game", function( req,res ){
 	res.sendFile(__dirname+"/game.html");
 });
 
-
 app.get( "/match/:nickname/:choice" , function( req , res ){
+	
 	var sNickname = req.params.nickname;
-	var sChoice 	= req.params.choice;
+	var sChoice = req.params.choice;
+	
 	console.log( sNickname , sChoice );
+	
 	if( sNickname == "a" ){
 		jPlayerOne.choice =  sChoice;
 	}else{
@@ -29,9 +28,6 @@ app.get( "/match/:nickname/:choice" , function( req , res ){
 	}
 	res.json({"response":"ok"});
 });
-
-
-
 
 app.get( "/result/:nickname" , function( req , res ){
 	var sNickname = req.params.nickname;
@@ -48,13 +44,8 @@ app.get( "/result/:nickname" , function( req , res ){
 	if( jPlayerOne.choice == "rock" && jPlayerTwo.choice == "scissor" ){
 		res.json( {"status":"winner","nickname":jPlayerOne.nickname} );
 	}
-
-
-
 });
 
-
-
-app.listen(80, function(){
+app.listen(4200, function(){
 	console.log("SERVER RUNNING");
 });

@@ -73,41 +73,64 @@
 		$("#rock").click(function(){
 			var sNickname = $("#nickname").val(); // get the value from the text box
 			// AJAX to the server
-			var sUrl = "match/"+sNickname+"/rock";
-			$.getJSON( sUrl , function( jData ){ 
-				console.log( jData );
+			$.ajax({
+				"url":"match/" + sNickname + "/rock",
+				"method":"get"
 			});
+			// var sUrl = "match/" + sNickname + "/rock";
+			// $.getJSON( sUrl , function( jData ){ 
+			// 	console.log( jData );
+			// });
 		});
 
 		$("#paper").click(function(){
 			var sNickname = $("#nickname").val(); // get the value from the text box
 			// AJAX to the server
-			var sUrl = "match/"+sNickname+"/paper";
-			$.getJSON( sUrl , function( jData ){ 
-				console.log( jData );
+			$.ajax({
+				"url":"match/" + sNickname + "/paper",
+				"method":"get"
 			});
+			// var sUrl = "match/" + sNickname + "/paper";
+			// $.getJSON( sUrl , function( jData ){ 
+			// 	console.log( jData );
+			// });
 		});
 
 		$("#scissor").click(function(){
 			var sNickname = $("#nickname").val(); // get the value from the text box
 			// AJAX to the server
-			var sUrl = "match/"+sNickname+"/scissor";
-			$.getJSON( sUrl , function( jData ){ 
-				console.log( jData );
+			$.ajax({
+				"url":"match/" + sNickname + "/scissor",
+				"method":"get"
 			});
+			// var sUrl = "match/" + sNickname + "/scissor";
+			// $.getJSON( sUrl , function( jData ){ 
+			// 	console.log( jData );
+			// });
 		});
 
 		setInterval( function(){
+			
 			var sNickname = $("#nickname").val(); // get the value from the text box
-			var sUrl = "result/"+sNickname;
-			$.getJSON( sUrl , function( jData ){
-				if( jData.status == "even" ){
+			var sUrl = "result/" + sNickname;
+			
+			$.ajax({
+				"url":sUrl,
+				"method":"get"
+			}).done(function(){
+				
+				if( sUrl.status == "even" ){
 					$("body").css( {"background-color":"yellow"} );
 				}
-				if( jData.status == "winner" && jData.nickname == sNickname){
-					$("body").css( {"background-color":"green"} );
-				}
 			});
+			// $.getJSON( sUrl , function( jData ){
+			// 	if( jData.status == "even" ){
+			// 		$("body").css( {"background-color":"yellow"} );
+			// 	}
+			// 	if( jData.status == "winner" && jData.nickname == sNickname){
+			// 		$("body").css( {"background-color":"green"} );
+			// 	}
+			// });
 		} , 1000 );
 	</script>
 </body>

@@ -7,11 +7,11 @@ app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded( {"extended":false} ) );
 
 // Create some players for testing
-var jPlayerOne = {"nickname":"a","choice":""};
-var jPlayerTwo = {"nickname":"b","choice":""};
+var jPlayerOne = {"nickname":"a","choice":"rock"};
+var jPlayerTwo = {"nickname":"b","choice":"paper"};
 
-app.get( "/game", function( req,res ){
-	res.sendFile(__dirname+"/game.html");
+app.get( "/", function( req, res ){
+	res.sendFile(__dirname + "/game.html");
 });
 
 app.get( "/match/:nickname/:choice" , function( req , res ){
